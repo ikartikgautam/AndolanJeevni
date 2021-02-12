@@ -2,12 +2,36 @@
 <app-bottom-nav-bar></app-bottom-nav-bar> -->
 
 <mat-drawer-container class="example-container" hasBackdrop="true">
-    <mat-drawer #drawer mode="push">I'm a drawer</mat-drawer>
+    <mat-drawer #drawer mode="push" style="min-width: 60vw;">
+
+        <div class="topView">
+            User Name
+        </div>
+        <ul>
+            <li>
+                <mat-icon>perm_identity</mat-icon>
+                <span>Profile</span>
+            </li>
+            <li>
+                <mat-icon>turned_in_not</mat-icon>
+                <span>Saved</span>
+            </li>
+            <hr>
+            <li>
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span>
+            </li>
+            <li>
+                <mat-icon>help_outline</mat-icon>
+                <span>Help</span>
+            </li>
+        </ul>
+
+    </mat-drawer>
     <mat-drawer-content>
 
         <router-outlet></router-outlet>
         <app-bottom-nav-bar></app-bottom-nav-bar>
 
-        <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
     </mat-drawer-content>
 </mat-drawer-container>

@@ -15,13 +15,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDrawerService } from './services/mat-drawer.service';
+import { SearchPageComponent } from './search-page/search-page.component';
+import { AlertsPageComponent } from './alerts-page/alerts-page.component';
+import { ToolkitsPageComponent } from './toolkits-page/toolkits-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BottomNavBarComponent,
     TopHeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    SearchPageComponent,
+    AlertsPageComponent,
+    ToolkitsPageComponent
   ],
   imports: [
     BrowserModule,
