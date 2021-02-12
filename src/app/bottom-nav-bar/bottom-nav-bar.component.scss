@@ -1,0 +1,16 @@
+.floating-bottom-bar {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 11vh;
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+}
+.floating-bottom-bar div {
+    padding-top: 16px;
+}
+.floating-bottom-bar a{
+    color:white
+}
