@@ -10,6 +10,12 @@ import { TopHeaderComponent } from './top-header/top-header.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDrawerService } from './services/mat-drawer.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +27,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
   ],
-  providers: [],
+  providers: [
+    MatDrawerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

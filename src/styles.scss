@@ -46,7 +46,12 @@ body{
 }
 .primary {
     background-color: #6002ee;
+    color: white;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.flexOne{
+  flex: 1;
+}

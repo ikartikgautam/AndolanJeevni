@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawerService } from '../services/mat-drawer.service';
 
 @Component({
   selector: 'app-top-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public matDrawerService: MatDrawerService) { }
 
   ngOnInit(): void {
   }
