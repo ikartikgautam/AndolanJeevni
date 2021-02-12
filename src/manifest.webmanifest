@@ -1,11 +1,12 @@
 {
-  "name": "andolanJeevni",
-  "short_name": "andolanJeevni",
+  "name": "AndolanJeevni",
+  "short_name": "AndolanJeevni",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

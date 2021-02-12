@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "andolanjeevni",
+      "public": "dist/andolanJeevni",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

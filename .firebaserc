@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "andolanjeevni-9c88a"
+  },
+  "targets": {
+    "andolanjeevni-9c88a": {
+      "hosting": {
+        "andolanjeevni": [
+          "andolanJeevni"
+        ]
+      }
+    }
+  }
+}
