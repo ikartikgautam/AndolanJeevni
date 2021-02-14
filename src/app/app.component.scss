@@ -25,3 +25,19 @@ ul li span {
     min-height: 15vh;
     background-color: whitesmoke;
 }
+
+.splash {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: white;
+}
+.splash img {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+}

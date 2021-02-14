@@ -18,6 +18,17 @@ import { MatDrawerService } from './services/mat-drawer.service';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { AlertsPageComponent } from './alerts-page/alerts-page.component';
 import { ToolkitsPageComponent } from './toolkits-page/toolkits-page.component';
+import { TopSearchBarComponent } from './search-page/top-search-bar/top-search-bar.component';
+import { AuthPageComponent } from './auth-page/auth-page.component';
+import { AuthService } from './services/auth.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginPageComponent } from './auth-page/login-page/login-page.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupPageComponent } from './auth-page/signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +38,11 @@ import { ToolkitsPageComponent } from './toolkits-page/toolkits-page.component';
     HomePageComponent,
     SearchPageComponent,
     AlertsPageComponent,
-    ToolkitsPageComponent
+    ToolkitsPageComponent,
+    TopSearchBarComponent,
+    AuthPageComponent,
+    LoginPageComponent,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +53,17 @@ import { ToolkitsPageComponent } from './toolkits-page/toolkits-page.component';
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     MatDrawerService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

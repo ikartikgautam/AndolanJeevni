@@ -1,6 +1,12 @@
 <!-- <router-outlet></router-outlet>
 <app-bottom-nav-bar></app-bottom-nav-bar> -->
 
+<div *ngIf="loading" class="splash">
+
+    <img src="../assets/icons/icon-192x192.png" alt="">
+
+</div>
+
 <mat-drawer-container class="example-container" hasBackdrop="true">
     <mat-drawer #drawer mode="push" style="min-width: 60vw;">
 
@@ -25,13 +31,18 @@
                 <mat-icon>help_outline</mat-icon>
                 <span>Help</span>
             </li>
+            <li (click)="logout()">
+                <mat-icon>help_outline</mat-icon>
+                <span>Logout</span>
+            </li>
         </ul>
 
     </mat-drawer>
     <mat-drawer-content>
 
         <router-outlet></router-outlet>
-        <app-bottom-nav-bar></app-bottom-nav-bar>
+        <app-bottom-nav-bar *ngIf="route.url != '/login' && route.url != '/loginForm' && route.url != '/signup'">
+        </app-bottom-nav-bar>
 
     </mat-drawer-content>
 </mat-drawer-container>
