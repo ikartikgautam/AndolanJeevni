@@ -29,6 +29,7 @@ import { LoginPageComponent } from './auth-page/login-page/login-page.component'
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupPageComponent } from './auth-page/signup-page/signup-page.component';
+import { DraftNewComponent } from './draft-new/draft-new.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SignupPageComponent } from './auth-page/signup-page/signup-page.compone
     TopSearchBarComponent,
     AuthPageComponent,
     LoginPageComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    DraftNewComponent
   ],
   imports: [
     BrowserModule,

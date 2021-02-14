@@ -50,4 +50,8 @@ export class AppComponent {
     })
   }
 
+  createNew() {
+    document.querySelector(".editNew").classList.add("appearEditor")
+  }
+
 }

@@ -44,5 +44,11 @@
         <app-bottom-nav-bar *ngIf="route.url != '/login' && route.url != '/loginForm' && route.url != '/signup'">
         </app-bottom-nav-bar>
 
+        <button mat-fab class="primary floating-btn" (click)="createNew()">
+            <mat-icon>create</mat-icon>
+        </button>
+
+        <app-draft-new class="editNew"></app-draft-new>
+
     </mat-drawer-content>
 </mat-drawer-container>
