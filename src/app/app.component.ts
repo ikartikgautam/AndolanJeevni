@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatDrawerService } from './services/mat-drawer.service';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -30,6 +30,7 @@ export class AppComponent {
 
       // get userId from firebase Auth
       this.authService.getUserState().subscribe(usrState => {
+        this.authService.AuthData = usrState;
         // get userData from fireStore
         this.authService.getUserDataFS(usrState.uid).subscribe(uData => {
           // Assign to variable

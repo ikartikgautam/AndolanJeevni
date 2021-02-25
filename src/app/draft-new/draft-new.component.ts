@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-draft-new',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DraftNewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  formDet = new FormGroup({
+    tweet: new FormControl(''),
+  })
+
+  submit() {
+
+    var tweet = this.formDet.get('tweet').value;
+
+    this.authService.postTweet(tweet).then(res => {
+      console.log(res)
+    })
+
+  }
+
+  closeEditor() {
+    document.querySelector(".editNew").classList.remove("appearEditor")
   }
 
 }

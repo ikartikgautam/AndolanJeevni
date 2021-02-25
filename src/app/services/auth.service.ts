@@ -4,6 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import * as uuid from 'uuid';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,8 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 export class AuthService {
 
     userData = null;
+    // AuthState data
+    AuthData = null;
 
     constructor(public auth: AngularFireAuth, private fireDb: AngularFireDatabase, private afs: AngularFirestore) {
         this.checkUser();
@@ -58,6 +61,19 @@ export class AuthService {
 
     getUserDataFS(Uid) {
         return this.afs.collection("prod").doc(Uid).valueChanges();
+    }
+
+    postTweet(text) {
+        var obj = {
+            tweet_id: uuid.v4(),
+            text: text,
+            media: [],
+            likes: 0,
+            comments: [],
+        }
+        return this.afs.collection("prod").doc(this.AuthData.uid).update({
+            arr: firebase.firestore.FieldValue.arrayUnion(obj)
+        })
     }
 
 }

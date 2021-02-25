@@ -1,1 +1,22 @@
-<p>draft-new works!</p>
+<div style="padding:12px; height:100%;">
+
+    <mat-icon (click)="closeEditor()" style="position: absolute;right: 12px;">clear</mat-icon>
+
+    <br><br>
+
+    <form [formGroup]="formDet" (ngSubmit)="submit()">
+
+        <div>
+
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Tweet</mat-label>
+                <textarea matInput formControlName="tweet"></textarea>
+            </mat-form-field>
+
+        </div>
+
+        <button mat-raised-button type="submit" class="submitBtn primary">Done</button>
+
+    </form>
+
+</div>
