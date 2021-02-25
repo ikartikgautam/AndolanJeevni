@@ -10,7 +10,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 })
 export class AuthService {
 
-    user = null;
+    userData = null;
 
     constructor(public auth: AngularFireAuth, private fireDb: AngularFireDatabase, private afs: AngularFirestore) {
         this.checkUser();
@@ -21,11 +21,16 @@ export class AuthService {
 
     checkUser() {
         this.auth.user.subscribe(res => {
+            console.log(res)
             if (res != null)
                 this.signedIn.next(true);
             else
                 this.signedIn.next(false);
         });
+    }
+
+    getUserState() {
+        return this.auth.authState
     }
 
     login(email, password) {
@@ -41,9 +46,6 @@ export class AuthService {
     }
 
     list() {
-        // this.fireDb.list('prod').valueChanges().subscribe(res => {
-        //     console.log(res);
-        // });
         this.afs.collection('prod').valueChanges().subscribe(res => {
             console.log('----', res);
         })
@@ -52,6 +54,10 @@ export class AuthService {
     upload(path, data) {
         // return this.fireDb.object(path).set(data)
         return this.afs.doc(path).set(data);
+    }
+
+    getUserDataFS(Uid) {
+        return this.afs.collection("prod").doc(Uid).valueChanges();
     }
 
 }

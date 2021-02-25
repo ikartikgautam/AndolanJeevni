@@ -17,9 +17,6 @@ export class AppComponent {
 
   constructor(private matDrawerService: MatDrawerService, public authService: AuthService, public route: Router) {
 
-    // authService.login('gautam.kartik05@gmail.com', 'spongybb').then((res) => {
-    //   console.log(res)
-    // })
     authService.list();
 
   }
@@ -30,17 +27,30 @@ export class AppComponent {
     this.matDrawerService.setSidenav(this.matDrawer);
 
     this.authService.signedIn$.subscribe(res => {
-      if (res) {
-        this.loading = false;
-      }
-      else if (res == undefined) {
-        this.loading = true;
-      }
-      else {
-        this.route.navigate(['login']);
-        this.loading = false;
-      }
-      // console.log("*******", res)
+
+      // get userId from firebase Auth
+      this.authService.getUserState().subscribe(usrState => {
+        // get userData from fireStore
+        this.authService.getUserDataFS(usrState.uid).subscribe(uData => {
+          // Assign to variable
+          /** WARN : will have to remove it in future, as variable may get bigger with time */
+          this.authService.userData = uData;
+
+          // Conditions
+          if (res) {
+            this.loading = false;
+          }
+          else if (res == undefined) {
+            this.loading = true;
+          }
+          else {
+            this.route.navigate(['login']);
+            this.loading = false;
+          }
+
+        })
+      })
+
     })
 
   }
