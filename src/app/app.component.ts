@@ -28,29 +28,30 @@ export class AppComponent {
 
     this.authService.signedIn$.subscribe(res => {
 
-      // get userId from firebase Auth
-      this.authService.getUserState().subscribe(usrState => {
-        this.authService.AuthData = usrState;
-        // get userData from fireStore
-        this.authService.getUserDataFS(usrState.uid).subscribe(uData => {
-          // Assign to variable
-          /** WARN : will have to remove it in future, as variable may get bigger with time */
-          this.authService.userData = uData;
+      // Conditions
+      if (res) {
 
-          // Conditions
-          if (res) {
-            this.loading = false;
-          }
-          else if (res == undefined) {
-            this.loading = true;
-          }
-          else {
-            this.route.navigate(['login']);
-            this.loading = false;
-          }
+        // get userId from firebase Auth
+        this.authService.getUserState().subscribe(usrState => {
+          this.authService.AuthData = usrState;
+          // get userData from fireStore
+          this.authService.getUserDataFS(usrState.uid).subscribe(uData => {
+            // Assign to variable
+            /** WARN : will have to remove it in future, as variable may get bigger with time */
+            this.authService.userData = uData;
 
+            this.loading = false;
+          })
         })
-      })
+
+      }
+      else if (res == undefined) {
+        this.loading = true;
+      }
+      else {
+        this.route.navigate(['login']);
+        this.loading = false;
+      }
 
     })
 
