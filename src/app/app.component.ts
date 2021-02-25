@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   loading = true;
+  username = '';
 
   ngOnInit(): void {
     this.matDrawerService.setSidenav(this.matDrawer);
@@ -39,6 +40,8 @@ export class AppComponent {
             // Assign to variable
             /** WARN : will have to remove it in future, as variable may get bigger with time */
             this.authService.userData = uData;
+            // Assign name
+            this.username = this.authService.userData.name
 
             this.loading = false;
           })
