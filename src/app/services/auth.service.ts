@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
 
     user = null;
 
-    constructor(public auth: AngularFireAuth, private fireDb: AngularFireDatabase) {
+    constructor(public auth: AngularFireAuth, private fireDb: AngularFireDatabase, private afs: AngularFirestore) {
         this.checkUser();
     }
 
@@ -40,13 +41,17 @@ export class AuthService {
     }
 
     list() {
-        this.fireDb.list('prod').valueChanges().subscribe(res => {
-            console.log(res);
-        });
+        // this.fireDb.list('prod').valueChanges().subscribe(res => {
+        //     console.log(res);
+        // });
+        this.afs.collection('prod').valueChanges().subscribe(res => {
+            console.log('----', res);
+        })
     }
 
     upload(path, data) {
-        return this.fireDb.object(path).set(data)
+        // return this.fireDb.object(path).set(data)
+        return this.afs.doc(path).set(data);
     }
 
 }

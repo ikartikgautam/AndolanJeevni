@@ -20,6 +20,7 @@ export class AppComponent {
     // authService.login('gautam.kartik05@gmail.com', 'spongybb').then((res) => {
     //   console.log(res)
     // })
+    authService.list();
 
   }
 

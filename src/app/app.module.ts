@@ -26,10 +26,11 @@ import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginPageComponent } from './auth-page/login-page/login-page.component';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupPageComponent } from './auth-page/signup-page/signup-page.component';
 import { DraftNewComponent } from './draft-new/draft-new.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { DraftNewComponent } from './draft-new/draft-new.component';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFirestoreModule,
   ],
   providers: [
     MatDrawerService,
