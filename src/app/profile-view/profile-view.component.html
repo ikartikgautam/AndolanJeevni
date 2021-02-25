@@ -1,0 +1,40 @@
+<app-top-header></app-top-header>
+
+<div class="background">
+    <div class="cover-img">
+
+    </div>
+
+    <div class="profileArea">
+
+        <img src="../../assets/placeholder-user-image.jpg" alt="" class="user-img">
+
+        <h1>{{userData.name}}</h1>
+
+        <hr>
+
+        <div class="tweetView">
+
+            <div class="card" *ngFor="let tweet of userData.arr">
+                <div>
+                    <img src="../../assets/placeholder-user-image.jpg" alt="" class="tweet-user-img">
+                </div>
+                <div class="meta">
+                    <h3>{{userData.name}}</h3>
+                    <p>{{tweet.text}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- {{userData.name}}
+
+<div *ngFor="let tweet of userData.arr">
+    {{userData.name}}
+    {{tweet.text}}
+    <hr>
+</div> -->

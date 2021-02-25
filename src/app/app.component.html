@@ -10,7 +10,7 @@
 <mat-drawer-container class="example-container" hasBackdrop="true">
     <mat-drawer #drawer mode="push" style="min-width: 60vw;">
 
-        <div class="topView">
+        <div class="topView" (click)="openOwnProfile()">
             {{authService.userData.name}}
         </div>
         <ul>

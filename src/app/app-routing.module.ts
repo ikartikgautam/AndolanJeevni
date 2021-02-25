@@ -5,6 +5,7 @@ import { AuthPageComponent } from './auth-page/auth-page.component';
 import { LoginPageComponent } from './auth-page/login-page/login-page.component';
 import { SignupPageComponent } from './auth-page/signup-page/signup-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { ToolkitsPageComponent } from './toolkits-page/toolkits-page.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: AuthPageComponent },
   { path: 'loginForm', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
+  { path: 'viewProfile', component: ProfileViewComponent },
 ];
 
 @NgModule({

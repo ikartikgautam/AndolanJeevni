@@ -66,4 +66,8 @@ export class AppComponent {
     document.querySelector(".editNew").classList.add("appearEditor")
   }
 
+  openOwnProfile() {
+    this.route.navigate(['viewProfile'], { queryParams: { id: this.authService.AuthData.uid } });
+  }
+
 }

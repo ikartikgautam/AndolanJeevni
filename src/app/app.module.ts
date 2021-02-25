@@ -31,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupPageComponent } from './auth-page/signup-page/signup-page.component';
 import { DraftNewComponent } from './draft-new/draft-new.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AuthPageComponent,
     LoginPageComponent,
     SignupPageComponent,
-    DraftNewComponent
+    DraftNewComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
